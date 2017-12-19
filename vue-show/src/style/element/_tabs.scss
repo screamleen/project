@@ -1,0 +1,17 @@
+.el-tabs__item {
+  &:hover, &.is-active {
+    color: #20a8d8 ;
+  }
+}
+.el-tabs__active-bar {
+  background-color: #20a8d8;
+}
+.el-tabs--border-card{
+  >.el-tabs__header {
+    .el-tabs__item {
+      &:hover, &.is-active {
+        color: #20a8d8 ;
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+export const C_exhibitor_list = [
+  {
+    add_date: 1513220459,
+    birth_date: 695318400,
+    duty: '',
+    email: '909880726@qq.co',
+    enterprise_info_id: 2,
+    exhibitor_info_id: 56,
+    fex: '',
+    given_names: '23',
+    id_card: '',
+    info_audit: '',
+    info_audit_date: 0,
+    info_remark: '',
+    info_status: '',
+    is_del: '0',
+    mobile: '',
+    modify_date: 1513516214,
+    name: '林健',
+    passport_birth_area: '234324',
+    passport_expiration_date: 1513036800,
+    passport_home_page_url: '',
+    passport_issue_area: '3234234',
+    passport_issue_date: 1514592000,
+    passport_no: '士大夫',
+    qq: '909880726',
+    sex: '男',
+    sur_name: '啊4',
+    telphone: '',
+    wechat: ''
+  }
+];

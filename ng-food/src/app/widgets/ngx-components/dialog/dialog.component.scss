@@ -1,0 +1,99 @@
+$dialog-bg: #FFF;
+$dialog-header-color: #575757;
+$dialog-body-color: #666666;
+
+.ngx-dialog {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  pointer-events: none;
+
+  .ngx-dialog-content {
+    pointer-events: auto;
+    border-radius: 4px;
+    //box-shadow: $shadow-3;
+    background: $dialog-bg;
+    position: relative;
+    animation-fill-mode: forwards;
+    min-width: 250px;
+    .content-wrap {
+      //padding: 15px;
+    }
+    .ngx-dialog-header {
+      .logo-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .logo {
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: auto;
+          height: 50px;
+          width: 50px;
+          z-index: 0;
+        }
+      }
+      .ngx-dialog-title {
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0 0 1.4rem 0;
+        color: $dialog-header-color;
+        text-align: center;
+      }
+
+      .close {
+        position: absolute;
+        top: 5px;
+        color: $dialog-header-color;
+        right: 5px;
+      }
+    }
+
+    .ngx-dialog-body {
+      font-size: .9rem;
+      color: $dialog-body-color;
+      .text-content{
+        text-align: center;
+      };
+    }
+    .ngx-dialog-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      button {
+        margin:0 16px;
+      }
+      button:active {
+        transform:scale(1.1);
+      }
+    }
+  }
+
+  @keyframes anim-open {
+    0% {
+      opacity: 0;
+      transform: scale3d(1.1, 1.1, 1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+  @keyframes anim-close {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: scale3d(0.9, 0.9, 1);
+    }
+  }
+
+}

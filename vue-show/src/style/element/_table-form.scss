@@ -1,0 +1,131 @@
+.line-input-container {
+  width: 100%;
+  position: relative;
+}
+/deep/ .el-form-item {
+  width: 100%;
+  &.inline-form-item {
+    width: auto;
+  }
+  .el-form-item__label {
+    height: 32px;
+    line-height: 32px;
+    margin: 0;
+    padding-left: 12px;
+  }
+  .el-form-item__content {
+    width: 100%;
+    .el-cascader {
+      line-height: 32px;
+    }
+  }
+}
+/deep/ .el-input {
+  padding: 0;
+  border: none;
+  background: #f0feff;
+  .el-input-group__append {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border: 0;
+    width: 100%;
+    background-color: transparent;
+    .input-line {
+      position: absolute;
+      left: 50%;
+      width: 0%;
+      bottom: 0;
+      border: 0;
+      border-top: 2px solid #36c6d3;
+      transition: .2s ease-in;
+    }
+    .input-error {
+      display: block;
+      position: absolute;
+      top: -26px;
+      right: 10px;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      text-align: center;
+      .el-icon-error {
+        font-size: 20px;
+        line-height: 20px;
+        color: #f56c6c;
+        cursor: pointer;
+      }
+    }
+  }
+  input {
+    border: none;
+    height:32px;
+    line-height: 32px;
+    padding: 6px;
+    background-color: transparent;
+  }
+  input:focus ~ .el-input-group__append{
+    .input-line {
+      width: 100%;
+      left: 0;
+      border-top: 2px solid #36c6d3;
+    }
+    .input-error {
+      display: none;
+    }
+  }
+}
+/deep/ .el-textarea {
+  padding: 0;
+  border: none;
+  textarea {
+    border: none;
+  }
+}
+/deep/ .el-table{
+  &:before, &:after{
+    background: #e4e5e6;
+  }
+  tr.without-style {
+    background: transparent;
+    border:0;
+    >th {
+      border:0;
+    }
+  }
+  th {
+    div {
+      line-height: 0;
+      padding: 0 ;
+      margin: 0;
+      overflow: visible;
+      text-overflow: clip;
+    }
+    white-space: normal;
+    padding: 10px 10px 10px 15px;
+  }
+  th.without-padding {
+    padding: 0;
+  }
+}
+/deep/ .el-radio-group {
+  line-height: normal;
+  .el-radio {
+    margin-bottom: 0;
+  }
+}
+/deep/ .el-date-editor {
+  &.el-input {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  &.el-input, &.el-input__inner {
+    width:  100%;
+  }
+}
+/deep/ .el-input__icon {
+  line-height: 0;
+}
+table {
+  border-color: #e6ebf5;
+}

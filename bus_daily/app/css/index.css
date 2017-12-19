@@ -1,0 +1,128 @@
+@charset "utf-8";
+*{
+	box-sizing: border-box;
+}
+html,body{
+	margin:0;
+	padding:0;
+	/*background-color: red;*/
+}
+a{
+	text-decoration: none
+}
+ul{
+	-webkit-padding-start:0;
+	padding-left:0;
+	list-style-type: none;
+	list-type:none;
+	margin:0;
+}
+.footer-nav{
+	position: fixed;
+    background: #fff;
+    width: 100%;
+    bottom: 0;
+    z-index: 99;
+    border-top: 1px solid #ccc;
+}
+
+.footer-nav ul li,.home-navbar ul li{
+	display: inline-block;
+	width:25%;
+}
+
+.footer-nav ul li a,.home-navbar ul li a{
+    width: 100%;
+    display: inline-block;
+    font-size: 12px;
+    color: #7a7a7a;
+}
+
+.footer-nav ul li a span{
+	padding-top:30px;
+    background:url("../img/tab.png") center top no-repeat;
+	display: block;
+    text-align:center;
+    background-size:22px 404px;
+    padding-bottom: 4px;
+}
+
+.footer-nav ul li a.active span{
+	color: #009ff0;
+}
+
+
+.footer-nav ul li .nav-first{
+	background-position: center 4px;
+}
+
+.footer-nav ul li a.active .nav-first{
+	background-position: center -46px;
+}
+
+.footer-nav ul li  .nav-second{
+	background-position: center -296px;
+}
+
+.footer-nav ul li a.active .nav-second{
+	background-position: center -346px;
+}
+
+.footer-nav ul li .nav-third{
+	background-position: center -196px;
+}
+.footer-nav ul li a.active .nav-third{
+	background-position: center -246px;
+}
+
+.footer-nav ul li .nav-fourth{
+	background-position: center -96px;
+}
+
+.footer-nav ul li a.active .nav-fourth{
+	background-position: center -146px;
+}
+
+/*主页头部导航*/
+
+.home-navbar{
+	/*height:140px;*/
+	background-color:#1984d1;
+	/*background-color:#23A2F7;*/
+}
+
+.home-navbar ul li{
+	font-size:0.9em;
+	color:white;
+}
+
+.home-navbar ul li span{
+	padding-top:60px;
+	display:block;
+	text-align: center;
+	padding-bottom:10px;
+	background-size: 48px 48px;
+}
+
+.kpi-icon{
+	background:url("../img/kpi.png") center 3px no-repeat;
+}
+.task-icon{
+	background:url("../img/mytask.png") center 3px  no-repeat;
+}
+.alalysis-icon{
+	background:url("../img/alalysis.png") center 3px  no-repeat;
+}
+.myfollow-icon{
+	background:url("../img/myfollow.png") center 3px  no-repeat;
+}
+
+.applist ul li{
+	display: inline-block;
+	width:25%;
+	text-align: center;
+}
+.applist ul li a span{
+	display: block;
+	padding-top:50px;
+}

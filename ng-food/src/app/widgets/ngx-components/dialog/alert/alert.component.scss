@@ -1,0 +1,24 @@
+$alert-bg: #FFF;
+$alert-body-color: #444;
+
+.ngx-alert-dialog {
+  .ngx-dialog-content {
+    &.ngx-alert-danger {
+      background: $alert-bg;
+      .ngx-dialog-body {
+        color: $alert-body-color;
+      }
+    }
+
+    &.ngx-alert-warning {
+      background: $alert-bg;
+      .ngx-dialog-body {
+        color: $alert-body-color;
+      }
+    }
+  }
+
+  .ngx-dialog-footer {
+    margin-top: 30px;
+  }
+}

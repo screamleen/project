@@ -1,0 +1,23 @@
+.el-button {
+  &.el-button--text {
+    color: $theme-base-color;
+  }
+  &.el-button--primary {
+    &.is-plain {
+      color: $theme-base-color;
+      background: #ecf5ff;
+      border-color: #63c2de;
+      &:hover {
+        background: $theme-base-color;
+        border-color: #2dbcee;
+        color: #fff;
+      }
+      &.is-disabled, .is-disabled:hover {
+        color: #8adefc;
+        background-color: #ecf5ff;
+        border-color: #d9ecff;
+      }
+    }
+
+  }
+}

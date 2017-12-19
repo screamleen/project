@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+ul {
+  margin: 0;
+  padding: 0;
+  -webkit-padding-start: 0;
+}
+body {
+  background: #AEAFB0;
+}
+body, html {
+  height: 100%;
+}

@@ -1,0 +1,10 @@
+.el-table {
+  th,td {
+    padding: 10px;
+  }
+  &.table-center {
+    th,td {
+      text-align: center;
+    }
+  }
+}

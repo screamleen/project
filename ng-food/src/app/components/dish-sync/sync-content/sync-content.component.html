@@ -1,0 +1,82 @@
+<div class="container-wrap" #container>
+  <div class="dish-panel">
+    <ul class="panel-item">
+      <li *ngFor="let item of state.unSync">
+        <div class="item-header">
+          <div class="mark-line" [ngStyle]="{ 'background-color': platformColors[item.platform]}"></div>
+          <div class="item-mark item-header-line">
+            <div class="item-wrap spec">{{item.platform_name}}</div>
+          </div>
+        </div>
+        <div class="item-content">
+          <ul class ="item-list" *ngIf="syncDishesSelc">
+            <ng-container *ngFor="let matchItem of syncDishesSelc?.match">
+              <li class="active" *ngIf="matchItem.platform === item.platform" [ngStyle]="{ 'background-color': platformColors[matchItem.platform]}">
+                <div class="item-wrap">
+                  {{ matchItem.name}}
+                </div>
+              </li>
+            </ng-container>
+          </ul>
+          <ul class ="item-list" *ngIf="!syncDishesSelc" [id]="item.platform">
+            <li *ngFor="let dish of item.unMatch_dishes" (click)="selectUnSyncDish(dish, item.platform)"
+                [ngStyle]="{ 'background-color': isUnSyncDishSelected(dish, item.platform) ? platformColors[item.platform] : 'transparent'}"
+                [ngClass]="{ 'active': isUnSyncDishSelected(dish, item.platform)}">
+              <div class="item-wrap" title="{{ dish.name }}">
+                {{ dish.name }}
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="item-header" >
+          <div class="mark-line" [ngStyle]="{ 'background-color': '#6c709d'}"></div>
+          <div class="item-mark">
+            <div class="item-wrap spec">确认菜品名称</div>
+          </div>
+        </div>
+        <div class="item-content" *ngIf="!syncDishesSelc">
+          <form [formGroup] = "dishNameForm" novalidate>
+            <ul class ="unsolved-name-list">
+              <li *ngFor="let name of unSolvedName;let i = index;">
+                <div class="">
+                  <input formControlName="unSolvedName" type="radio" id="tag{{ i }}" class="ng-radio" value="{{name}}" [checked]="name === dishNameForm.get('unSolvedName').value"/>
+                  <label for="tag{{ i }}" title="{{ name }}">{{ name }}</label>
+                </div>
+              </li>
+              <li *ngIf="unSolvedName.length">
+                <input formControlName="unSolvedName" type="radio" id="tagLast" #tagLast class="ng-radio" [value] = "selfDefinedName" [checked] ="!!selfDefinedName"/>
+                <label for="tagLast">自定义</label>
+                <input formControlName="selfDefinedName" #mark (keyup)="changeUnSolvedName(mark.value)" class="text-input" [(ngModel)] = "selfDefinedName"/>
+              </li>
+            </ul>
+          </form>
+        </div>
+        <div class="options" *ngIf="syncDishesSelc">
+          <div class="option-item" (click)="resetSyncDishesSelected()">重新匹配</div>
+          <div class="option-item inactive">确认匹配</div>
+        </div>
+        <div class="options" *ngIf="!syncDishesSelc">
+          <div class="option-item" [class.inactive]="!unSyncDishesSelc?.length" (click)="resetUnSyncDishesSelected()">重新匹配</div>
+          <div class="option-item" [class.inactive]="dishNameForm.controls.unSolvedName.invalid" (click)="confirmUnSynDishesSelected()">确认匹配</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="dish-sync-panel" (click)="syncDishesBlur()">
+    <div class="title">
+      <span>已确认菜品 {{ state.sync.length }}</span>
+      <button *ngIf="nextButton && !isNeedForce()" class="top-btn" (click)="goNext()" appStopPropagation>下一步</button>
+      <button *ngIf="isNeedForce()" class="top-btn" (click)="syncForce()" appStopPropagation>强制匹配</button>
+    </div>
+    <div class="body">
+      <ul class="dish-sync-list">
+        <li class="dish-sync-item" *ngFor="let item of state.sync" (click)="selectSyncDish(item)" [ngClass] = "{ 'active': item.id === syncDishesSelc?.id }" appStopPropagation>
+          <span class="dish-sync-name">{{item.name}}</span>
+          <span class="num-badge"> {{ item.match.length}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
